@@ -1,0 +1,27 @@
+<div class="topbar-container"
+     ng-include="'views/includes/topbar.html'"
+     ng-init="titleSection='Wallet Information'; goBackToState = 'walletHome';">
+</div>
+
+<div ng-include="'views/includes/progressReport.html'"></div>
+
+<div class="content preferences" ng-controller="walletInfoController as walletInfo">
+    <h4 class="title m0" ng-show="walletInfo.assets" translate>Asset</h4>
+
+    <div ng-repeat="asset in walletInfo.assets" ng-mouseover="walletInfo.hoverId = asset.assetId">
+      <a class="remove-asset-link" translate ng-show="asset.custom && walletInfo.hoverId == asset.assetId"
+        ng-click="walletInfo.removeCustomAsset(asset.assetId)">
+          <i class="fi-x size-18"></i>
+      </a>
+      <ion-radio class="line-b size-12 radio-label" ng-value="asset.assetId" ng-model="walletInfo.assetId"
+        ng-click="walletInfo.setSelectedAsset(asset.assetId)">
+          {{ asset.assetName | rawHtml }}
+          <span class="right" style="margin-right: 20px">{{ asset.balanceStr | rawHtml }}</span>
+      </ion-radio>
+    </div>
+    <h4></h4>
+    <div class="text-center">
+      <a class="button outline light-gray tiny round" ng-click="walletInfo.showTokenModal()" translate>ADD TOKEN</a>
+    </div>
+</div>
+<div class="extra-margin-bottom"></div>

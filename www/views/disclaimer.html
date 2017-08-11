@@ -1,0 +1,39 @@
+<div class="splash extra-padding-bottom p20t content text-center"
+  ng-style="{'background-color': index.secondaryColor }"
+  ng-controller="disclaimerController as disclaimer" ng-init="disclaimer.init()">
+  <div class="row">
+    <div class="medium-centered small-centered large-centered columns size-14">
+      <div class="cc-logo-holder negative">
+        <logo ng-if="!sidebar.isWindowsPhoneApp" negative="true" width="120"></logo>
+        <logo ng-if="sidebar.isWindowsPhoneApp" negative="true" width="120"></logo>
+      </div>
+      <span class="text-bold text-white m10t" translate>WELCOME TO COLU WALLET</span>
+      <p class="text-gray m0 text-light" translate>A multisignature colored coins wallet</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="scrollArea" ng-style="{'background-color': index.secondaryColor }">
+      <p class="enable_text_select m0">
+        <div class="size-14 text-gray" translate>Terms of Use</div>
+        <div ng-include="'views/includes/terms.html'"></div>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <p ng-show="disclaimer.lang != 'en'">
+      <a class="center" ng-click="$root.openExternalLink('https://copay.io/disclaimer')" translate>Official English Disclaimer</a>
+    </p>
+  </div>
+  <div>
+      <p class="text-gray columns size-12" translate>I affirm that I have read, understood, and agree with these terms.</p>
+  </div>
+  <div class="row">
+
+    <div class="start-button columns button-box">
+      <button ng-click="disclaimer.accept()" class="button black expand round size-12 text-spacing m0" translate>
+        I AGREE. GET STARTED
+      </button>
+    </div>
+  </div>
+</div>

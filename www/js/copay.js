@@ -1154,12 +1154,15 @@ angular.module('copayApp.directives')
 
       $scope.cordovaOpenScanner = function() {
         window.plugins.spinnerDialog.show(null, gettextCatalog.getString('Preparing camera...'), true);
+
+        alert(1);
+
         $timeout(function() {
-          // if (isIOS) {
-            // cloudSky.zBar.scan({}, onSuccess, onError);
-          // } else {
+          if (isIOS) {
+            cloudSky.zBar.scan({}, onSuccess, onError);
+          } else {
             cordova.plugins.barcodeScanner.scan(onSuccess, onError);
-          // }
+          }
           if ($scope.beforeScan) {
             $scope.beforeScan();
           }
@@ -12189,7 +12192,7 @@ angular.module('copayApp.controllers').controller('scannerController', function(
       context.clearRect(0, 0, 300, 225);
 
       navigator.getUserMedia({
-        video: false
+        video: true
       }, _successCallback, _videoError);
     }, 500);
   };

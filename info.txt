@@ -1,3 +1,9 @@
+Node version: v8.2.1
+
+Cordova version: 7.0.1
+
+Config.xml file: 
+
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.commonsos.wallets" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>COMMONS Wallets</name>
@@ -90,3 +96,21 @@
         <variable name="CAMERA_USAGE_DESCRIPTION" value="To scan barcodes" />
     </plugin>
 </widget>
+
+
+Plugins: 
+
+cordova-plugin-compat,cordova-plugin-console,cordova-plugin-device,cordova-plugin-qrscanner,cordova-plugin-splashscreen,cordova-plugin-statusbar,cordova-plugin-swift-support,cordova-plugin-whitelist,ionic-plugin-keyboard,phonegap-plugin-barcodescanner
+
+Error retrieving Android platform information: 
+Android SDK is not set up properly. Make sure that the Android SDK 'tools' and 'platform-tools' directories are in the PATH variable. 
+
+Error: android: Command failed with exit code ENOENT
+
+
+
+iOS platform:
+
+Xcode 8.3.3
+Build version 8E3004b
+

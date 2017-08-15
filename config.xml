@@ -3,7 +3,7 @@
     <name>COMMONS Wallets</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">COMMONS OS OU</author>
-    <content original-src="index.html" src="http://10.0.1.196:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-intent href="http://*/*" />

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app='copayApp'>
+<html lang="en" ng-app='copayApp' ng-controller="indexController as index">
 <head>
   <meta charset="utf-8">
 
@@ -37,7 +37,7 @@
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
 </head>
-<body ng-controller="indexController as index"　ng-cloak class="ng-cloak platform-ios platform-cordova platform-webview">
+<body 　ng-cloak class="ng-cloak platform-ios platform-cordova platform-webview">
 
   <ion-side-menus class="page">
 
@@ -46,7 +46,6 @@
         style="background-color: {{index.secondaryColor}}"
         ng-if="index.hasProfile && isDisclaimerAccepted">
       <div ng-include src="'views/includes/sidebar.html'"></div>
-      <div ng-include src="../'views/includes/sidebar.html'"></div>
     </ion-side-menu>
 
     <!-- Main content -->

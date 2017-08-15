@@ -605,7 +605,7 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
 
     if (platformInfo.isCordova) {
       if (screen.width < 768) {
-        screen.lockOrientation('portrait');
+        screen.orientation.lock('portrait');
       } else {
         window.addEventListener("orientationchange", function() {
           var leftMenuWidth = document.querySelector("ion-side-menu[side='left']").clientWidth;
@@ -1154,8 +1154,6 @@ angular.module('copayApp.directives')
 
       $scope.cordovaOpenScanner = function() {
         window.plugins.spinnerDialog.show(null, gettextCatalog.getString('Preparing camera...'), true);
-
-        alert(1);
 
         $timeout(function() {
           if (isIOS) {

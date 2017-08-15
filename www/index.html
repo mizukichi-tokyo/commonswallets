@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-controller="indexController as index">
+<html lang="en" ng-app='copayApp'>
 <head>
   <meta charset="utf-8">
 
@@ -32,22 +32,12 @@
 
   <!-- ionic/angularjs js -->
   <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-  <!-- copay -->
-  <!--  <link rel="stylesheet" type="text/css" href="css/ionic.css">-->
-  <link rel="stylesheet" type="text/css" href="css/foundation.css">
-  <link rel="stylesheet" type="text/css" href="icons/foundation-icons.css">
-  <link rel="stylesheet" type="text/css" href="css/ui-components.css">
-  <link rel="stylesheet" type="text/css" href="css/copay.css">
-  <!-- copay -->
+  <script src="lib/angular.js"></script>
 
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
-
-  <!-- cordova.js required for cordova apps -->
-  <script src="cordova.js"></script>
 </head>
-<body ng-cloak class="ng-cloak platform-ios platform-cordova platform-webview">
+<body ng-controller="indexController as index"　ng-cloak class="ng-cloak platform-ios platform-cordova platform-webview">
 
   <ion-side-menus class="page">
 
@@ -55,7 +45,8 @@
     <ion-side-menu side="left" expose-aside-when="large"
         style="background-color: {{index.secondaryColor}}"
         ng-if="index.hasProfile && isDisclaimerAccepted">
-      <div ng-include="'views/includes/sidebar.html'"></div>
+      <div ng-include src="'views/includes/sidebar.html'"></div>
+      <div ng-include src="../'views/includes/sidebar.html'"></div>
     </ion-side-menu>
 
     <!-- Main content -->
@@ -73,15 +64,16 @@
     </ion-side-menu-content>
   </ion-side-menus>
 
-  <script src="lib/ionic.bundle.js"></script>
-  <script src="lib/angular.js"></script>
-  <script src="lib/ui-components.js"></script>
 
   <!-- DO NOT DELETE THIS COMMET  -->
   <!-- PLACEHOLDER: CORDOVA SRIPT -->
+  <link rel="stylesheet" type="text/css" href="css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="icons/foundation-icons.css">
+
+  <script src="lib/ui-components.js"></script>
   <script src="config.js"></script>
   <script src="js/copay.js"></script>
 
-
+  <link rel="stylesheet" type="text/css" href="css/copay.css">
 </body>
 </html>

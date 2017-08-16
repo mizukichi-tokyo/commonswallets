@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app='copayApp' ng-controller="indexController as index">
+<html lang="en" ng-controller="indexController as index">
 <head>
   <meta charset="utf-8">
 
@@ -7,10 +7,12 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' yourhost.com ws://localhost:35729 data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *;script-src 'self' localhost:35729 'unsafe-eval' 'unsafe-inline';"> -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src*;script-src'self' 'unsafe-inline' 'unsafe-eval'*;style-src'self' 'unsafe-inline';"/> -->
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="format-detection" content="telephone=no">
 
-  <link rel="shortcut icon" type="image/x-icon" href="assets/icon/favicon.ico">
+  <!-- <link rel="shortcut icon" type="image/x-icon" href="icon/favicon.ico"> -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4e8ef7">
 
@@ -37,7 +39,7 @@
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
 </head>
-<body 　ng-cloak class="ng-cloak platform-ios platform-cordova platform-webview">
+<body ng-cloak class="ng-cloak platform-ios platform-cordova platform-webview">
 
   <ion-side-menus class="page">
 

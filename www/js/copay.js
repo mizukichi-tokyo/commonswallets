@@ -605,7 +605,7 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
 
     if (platformInfo.isCordova) {
       if (screen.width < 768) {
-        screen.orientation.lock('portrait');
+        // screen.orientation.lock('portrait');
       } else {
         window.addEventListener("orientationchange", function() {
           var leftMenuWidth = document.querySelector("ion-side-menu[side='left']").clientWidth;
@@ -2667,7 +2667,7 @@ angular.module('copayApp.services').factory('configService', function(instanceCo
     },
 
     pushNotifications: {
-      enabled: true,
+      enabled: false,
       config: {
         android: {
           senderID: '1036948132229',
@@ -2959,7 +2959,10 @@ angular.module('copayApp.services')
         return cb(msg);
       };
 
-      window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+      document.addEventListener("deviceready", function() {
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFileSystemSuccess, fail);
+      }, false);
+
     };
 
     root.get = function(k, cb) {
@@ -15513,13 +15516,30 @@ window.version="2.7.0-2";
 window.commitHash="965b8b4";
 'use strict';
 
+copayApp.run(function($ionicPlatform) {
+  $ionicPlatform.ready(function() {
+    if(window.cordova && window.cordova.plugins.Keyboard) {
+      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+      // for form inputs)
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+
+      // Don't remove this line unless you know what you are doing. It stops the viewport
+      // from snapping when text inputs are focused. Ionic handles this internally for
+      // a much nicer keyboard experience.
+      cordova.plugins.Keyboard.disableScroll(true);
+    }
+    if(window.StatusBar) {
+      StatusBar.styleDefault();
+    }
+  });
+})
+
 angular.element(document).ready(function() {
 
   // Run copayApp after device is ready.
   var startAngular = function() {
     angular.bootstrap(document, ['copayApp']);
   };
-
 
   function handleOpenURL(url) {
     if ('cordova' in window) {
@@ -15537,9 +15557,7 @@ angular.element(document).ready(function() {
 
     window.handleOpenURL = handleOpenURL;
 
-
     document.addEventListener('deviceready', function() {
-
       window.open = cordova.InAppBrowser.open;
 
       // Create a sticky event for handling the app being opened via a custom URL

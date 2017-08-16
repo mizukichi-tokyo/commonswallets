@@ -15513,7 +15513,7 @@ angular.module('copayApp').run(['gettextCatalog', function (gettextCatalog) {
 /* jshint +W100 */
 }]);
 window.version="0.0.2";
-window.commitHash="6c1bdde";
+window.commitHash="4821f93";
 'use strict';
 
 angular.element(document).ready(function() {

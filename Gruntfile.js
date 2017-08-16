@@ -111,7 +111,7 @@ module.exports = function(grunt) {
           'bower_components/colu-copay-addon/dist/colu-copay-addon.js',
           'bower_components/colu-copay-addon/config.js'
         ],
-        dest: 'public/lib/angular.js'
+        dest: 'www/lib/angular.js'
       },
       js: {
         src: [
@@ -129,11 +129,11 @@ module.exports = function(grunt) {
           'src/js/trezor-url.js',
           '.tmp/templates.js'
         ],
-        dest: 'public/js/copay.js'
+        dest: 'www/js/copay.js'
       },
       css: {
         src: ['src/sass/*.css', 'src/css/*.css'],
-        dest: 'public/css/copay.css'
+        dest: 'www/css/copay.css'
       },
       foundation: {
         src: [
@@ -142,19 +142,19 @@ module.exports = function(grunt) {
           'bower_components/animate.css/animate.css',
           'bower_components/colu-copay-addon/css/assets.css'
         ],
-        dest: 'public/css/foundation.css',
+        dest: 'www/css/foundation.css',
       },
       ionic_js: {
         src: [
           'bower_components/ionic/release/js/ionic.bundle.min.js'
         ],
-        dest: 'public/lib/ionic.bundle.js'
+        dest: 'www/lib/ionic.bundle.js'
       },
       ionic_css: {
         src: [
           'bower_components/ionic/release/css/ionic.min.css'
         ],
-        dest: 'public/css/ionic.css',
+        dest: 'www/css/ionic.css',
       },
       ui_components_js: {
         src: [
@@ -163,14 +163,14 @@ module.exports = function(grunt) {
           'bower_components/angular-gridster/dist/angular-gridster.min.js',
           'bower_components/javascript-detect-element-resize/detect-element-resize.js'
         ],
-        dest: 'public/lib/ui-components.js'
+        dest: 'www/lib/ui-components.js'
       },
       ui_components_css: {
         src: [
           'bower_components/roundSlider/dist/roundslider.min.css',
           'bower_components/angular-gridster/dist/angular-gridster.min.css'
         ],
-        dest: 'public/css/ui-components.css',
+        dest: 'www/css/ui-components.css',
       },
     },
     uglify: {
@@ -179,8 +179,8 @@ module.exports = function(grunt) {
       },
       prod: {
         files: {
-          'public/js/copay.js': ['public/js/copay.js'],
-          'public/lib/angular.js': ['public/lib/angular.js']
+          'www/js/copay.js': ['www/js/copay.js'],
+          'www/lib/angular.js': ['www/lib/angular.js']
         }
       }
     },
@@ -188,8 +188,8 @@ module.exports = function(grunt) {
       pot: {
         files: {
           'i18n/po/template.pot': [
-            'public/index.html',
-            'public/views/**/*.html',
+            'www/index.html',
+            'www/views/**/*.html',
             'src/js/routes.js',
             'src/js/services/*.js',
             'src/js/controllers/**/*.js'
@@ -210,25 +210,25 @@ module.exports = function(grunt) {
     copy: {
       config: {
           src: 'config.js',
-          dest: 'public/'
+          dest: 'www/'
       },
       icons: {
         expand: true,
         flatten: true,
         src: 'bower_components/foundation-icon-fonts/foundation-icons.*',
-        dest: 'public/icons/'
+        dest: 'www/icons/'
       },
       ionic_fonts: {
         expand: true,
         flatten: true,
         src: 'bower_components/ionic/release/fonts/ionicons.*',
-        dest: 'public/fonts/'
+        dest: 'www/fonts/'
       },
       linux: {
         files: [{
           expand: true,
           cwd: 'webkitbuilds/',
-          src: ['.desktop', '../public/img/icons/favicon.ico', '../public/img/icons/icon-256.png'],
+          src: ['.desktop', '../www/img/icons/favicon.ico', '../www/img/icons/icon-256.png'],
           dest: 'webkitbuilds/Copay/linux64/',
           flatten: true,
           filter: 'isFile'
@@ -250,10 +250,10 @@ module.exports = function(grunt) {
         platforms: ['win64', 'osx64', 'linux64'],
         buildDir: './webkitbuilds',
         version: '0.16.0',
-        macIcns: './public/img/icons/icon.icns',
-        exeIco: './public/img/icons/icon.ico'
+        macIcns: './www/img/icons/icon.icns',
+        exeIco: './www/img/icons/icon.ico'
       },
-      src: ['./package.json', './public/**/*']
+      src: ['./package.json', './www/**/*']
     },
     compress: {
       linux: {
@@ -275,7 +275,7 @@ module.exports = function(grunt) {
     },
     ngtemplates:    {
       copayApp:          {
-        src:        'public/views/**/*.html',
+        src:        'www/views/**/*.html',
         dest:       '.tmp/templates.js',
         options:    {
           htmlmin: {
@@ -289,7 +289,7 @@ module.exports = function(grunt) {
             removeScriptTypeAttributes:     true,
             removeStyleLinkTypeAttributes:  true
           },
-          url:    function(url) { return url.replace('public/', ''); }
+          url:    function(url) { return url.replace('www/', ''); }
         }
       }
     }

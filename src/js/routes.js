@@ -13,7 +13,7 @@ if (window && window.navigator) {
 }
 
 //Setting up route
-angular.module('copayApp').config(function(historicLogProvider, $provide, $logProvider, $stateProvider, $urlRouterProvider, $compileProvider, coluConfigProvider, instanceConfigProvider) {
+angular.module('copayApp').config(function(historicLogProvider, $provide, $logProvider, $stateProvider, $urlRouterProvider, $compileProvider, coluConfigProvider, instanceConfigProvider, $ionicCloudProvider) {
     $urlRouterProvider.otherwise('/');
 
     // default mode is SDK
@@ -28,6 +28,24 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
         mode: 'rpc'
       };
     }
+
+    $ionicCloudProvider.init({
+      "core": {
+        "app_id": "APP_ID"
+      },
+      "push": {
+        "sender_id": "SENDER_ID",
+        "pluginConfig": {
+          "ios": {
+            "badge": true,
+            "sound": true
+          },
+          "android": {
+            "iconColor": "#343434"
+          }
+        }
+      }
+    });
 
     coluConfigProvider.config(coluConfig);
 
@@ -578,7 +596,7 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
 
     if (platformInfo.isCordova) {
       if (screen.width < 768) {
-        screen.lockOrientation('portrait');
+        // $cordovaScreenOrientation.lockOrientation('portrait');
       } else {
         window.addEventListener("orientationchange", function() {
           var leftMenuWidth = document.querySelector("ion-side-menu[side='left']").clientWidth;
